@@ -43,3 +43,5 @@
 21-reverse: reverses its input.
 
 22-users_and_homes: Displays all users and their home directories, sorted by users. Based on the /etc/passwd file.
+
+100-empty_casks: Finds all empty files and directories in the current directory and all sub-directories. Requirements: Only the names of the files and directories should be displayed (not the entire path), hidden files should be listed, one file name per line, the listing should end with a new line.
