@@ -9,3 +9,7 @@
 4-global_variables: Lists environment variables.
 
 5-local_variables: Script that lists all local variables and environment variables, and functions.
+
+6-create_local_variable: Creates a new local variable. Name = BEST, Value = School.
+
+7-create_global_variable: Creates a new global variable. Name = Best, Value = School.
