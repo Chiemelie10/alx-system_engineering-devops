@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+# Displays "Best Schhol" 10 times, but displays
+# "Best School" and "Hi" for the 9th iteration
+
+i=0
+
+while (( i < 10 ))
+do
+  echo "Best School"
+  if (( i == 8 ))
+  then
+    echo "Hi"
+  fi
+  (( i++ ))
+done
