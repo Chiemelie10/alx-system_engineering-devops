@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-# This script add public key to your server
 
 ssh ubuntu@54.83.174.240 -i ~/.ssh/school
 mkdir -p ~/.ssh && touch ~/.ssh/authorized_keys
