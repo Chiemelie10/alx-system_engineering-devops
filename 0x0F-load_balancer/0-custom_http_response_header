@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+# This script installs and configures nginx on your server,
+# it also configures nginx so that its HTTP response contains
+# a custom header with the name "X-Served-By" and value which
+# is the hostname of the server Nginx is running on.
+
+apt-get -y update
+apt-get -y install nginx
+ufw allow 'Nginx HTTP'
+echo "Hello World!" | sudo tee /var/www/html/index.nginx-debian.html
+sed -i '/listen 80 default_server;/a add_header X-Served-By $hostname;' /etc/nginx/sites-available/default
+service nginx restart
