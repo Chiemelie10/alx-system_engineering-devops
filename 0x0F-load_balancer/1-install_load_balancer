@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+# This script install and configure HAproxy on your Ib-01 server.
+
+apt-get -y update
+apt-get -y install haproxy
+echo "
+frontend web_servers
+	bind *:80
+	mode http
+	default_backend web_backend
+backend web_backend
+	balance roundrobin
+	server 148050-web-01 emytek.tech:80 check
+	server 148050-web-02 emytek.tech:80 check
+" >> /etc/haproxy/haproxy.cfg
+service haproxy restart
