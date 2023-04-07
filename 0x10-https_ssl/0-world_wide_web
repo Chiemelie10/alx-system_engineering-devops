@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+# This bash script displays information about subdomains
+
+if [ "$#" -le 1 ]
+then
+  subdomains=("www" "lb-01" "web-01" "web-02")
+  for subdomain in "${subdomains[@]}"
+  do
+    dig "$subdomain"."$1" | grep -A1 "ANSWER SECTION:" | awk -v SUB="$subdomain" '{if (NR==2) print ("The subdomain", SUB ,"is a", $4 ,"record and points to", $5)}'
+  done
+else
+  dig "$2"."$1" | grep -A1 "ANSWER SECTION:" | awk -v SUB="$2" '{if (NR==2) print ("The subdomain", SUB ,"is a", $4 ,"record and points to", $5)}'
+fi
