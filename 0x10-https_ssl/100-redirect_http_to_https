@@ -44,7 +44,7 @@ frontend www-http
 	default_backend www-backend
 
 frontend www-https
-	bind *:443 ssl crt /etc/haproxy/certs/www.emytek.tech
+	bind *:443 ssl crt /etc/haproxy/certs/www.emytek.tech.pem
 	reqadd X-Forwarded-Proto:\ https
 	acl letsencrypt-acl path_beg /.well-known/acme-challenge/
 	use_backend letsencrypt-backend if letsencrypt-acl
@@ -53,7 +53,7 @@ frontend www-https
 backend www-backend
 	redirect scheme https if !{ ssl_fc }
 	balance roundrobin
-	server 148050-web-01 54.83.174.240:80 check
+	server 148050-web-01 34.229.186.196:80 check
 	server 148050-web-02 54.209.120.56:80 check
 
 backend letsencrypt-backend
