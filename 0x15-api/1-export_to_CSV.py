@@ -11,7 +11,7 @@ if __name__ == '__main__':
 
     _id = sys.argv[1]
     url1 = "https://jsonplaceholder.typicode.com/"
-    url2 = "users/{}?_embed=todos".format(user_id)
+    url2 = "users/{}?_embed=todos".format(_id)
     url = "{}{}".format(url1, url2)
 
     resp = requests.get(url)
