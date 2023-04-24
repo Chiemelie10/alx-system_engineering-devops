@@ -8,7 +8,7 @@ if __name__ == '__main__':
     import json
     import requests
     import sys
-    
+
     iuser_id = sys.argv[1]
     origin = "https://jsonplaceholder.typicode.com/"
     path = "users/{}?_embed=todos".format(user_id)
